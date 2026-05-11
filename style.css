@@ -16,14 +16,29 @@
     user-select: none;
 }
 
+/* --- CONFIGURATION GLOBALE --- */
 body, html {
     height: 100%;
     width: 100%;
-    overflow: hidden; 
     background: url('street-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     background-color: var(--bg-dark);
     color: var(--white);
+    overflow-x: hidden; /* Empêche le scroll horizontal */
+}
+
+/* Scroll désactivé uniquement sur Desktop */
+@media (min-width: 1025px) {
+    body, html {
+        overflow: hidden;
+    }
+}
+
+/* Scroll activé sur Mobile/Tablette */
+@media (max-width: 1024px) {
+    body, html {
+        overflow-y: auto;
+    }
 }
 
 /* --- NAVIGATION --- */
@@ -63,13 +78,21 @@ nav ul li a:hover { color: var(--gold-yellow); }
 
 /* --- CONTAINERS --- */
 .main-wrapper {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 100px 8% 60px 8%;
     text-align: center;
+}
+
+/* Ajustement spécifique pour mobile : Sous la navbar */
+@media (max-width: 768px) {
+    .main-wrapper {
+        justify-content: flex-start;
+        padding-top: 140px; /* Pousse le contenu sous la nav fixe */
+    }
 }
 
 /* --- TYPOGRAPHIE --- */
@@ -124,7 +147,6 @@ h1 span { color: var(--white); display: block; }
     backdrop-filter: blur(15px);
 }
 
-/* Animation d'ouverture */
 @keyframes modalPop {
     from { opacity: 0; transform: scale(0.8) translateY(20px); }
     to { opacity: 1; transform: scale(1) translateY(0); }
@@ -169,7 +191,6 @@ h1 span { color: var(--white); display: block; }
     transition: 0.3s;
 }
 
-/* Taille réduite des logos */
 .order-logo {
     width: 65px;
     height: 65px;
@@ -188,7 +209,7 @@ h1 span { color: var(--white); display: block; }
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: grayscale(100%) brightness(200%); /* Blanc par défaut */
+    filter: grayscale(100%) brightness(200%);
     transition: 0.4s;
 }
 
@@ -200,7 +221,7 @@ h1 span { color: var(--white); display: block; }
 }
 
 .order-item:hover .order-logo img {
-    filter: grayscale(0%) brightness(100%); /* Couleur originale au survol */
+    filter: grayscale(0%) brightness(100%);
 }
 
 /* --- MENU --- */
@@ -260,6 +281,8 @@ h1 span { color: var(--white); display: block; }
 .premium-card:hover {
     transform: translateY(-5px);
     border-color: var(--gold-yellow);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .card-img {
@@ -269,8 +292,6 @@ h1 span { color: var(--white); display: block; }
     background-color: #1a1a1a;
 }
 
-
-/* BADGE POPULAIRE */
 .badge-popular {
     background: var(--gold-yellow);
     color: #000;
@@ -281,14 +302,6 @@ h1 span { color: var(--white); display: block; }
     display: inline-block;
     margin-bottom: 8px;
     text-transform: uppercase;
-}
-
-/* EFFET SURBRILLANCE AU SURVOL */
-.premium-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--gold-yellow);
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.25); /* Le glow doré */
-    background: rgba(255, 255, 255, 0.06);
 }
 
 .card-info { padding: 20px; }
@@ -324,6 +337,14 @@ footer {
     text-align: center;
     border-top: 1px solid rgba(255, 215, 0, 0.1);
     z-index: 1000;
+}
+
+/* Mobile Footer: Se remet dans le flux pour ne pas gêner le scroll */
+@media (max-width: 1024px) {
+    footer {
+        position: relative;
+        margin-top: 30px;
+    }
 }
 
 footer p {
