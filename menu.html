@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Carte - Seven Kitchen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Badge style Uber */
+        .badge-popular {
+            background: #ffc107;
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 3px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        /* Effet de surbrillance/Glow au survol */
+        .premium-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden; /* Pour l'effet zoom image */
+        }
+        
+        .premium-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffc107;
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .card-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            background-color: #1a1a1a;
+            transition: transform 0.5s ease;
+        }
+
+        .premium-card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        /* Animation des onglets */
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">SEVEN KITCHEN</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">La Carte</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-wrapper" style="justify-content: flex-start; padding-top: 120px;">
+        <div class="menu-nav" data-aos="fade-down">
+            <button class="tab-link active" onclick="openCat(event, 'smash')">Smash Burgers</button>
+            <button class="tab-link" onclick="openCat(event, 'dwich')">Baguettes & Wraps</button>
+            <button class="tab-link" onclick="openCat(event, 'brasserie')">Brasserie</button>
+            <button class="tab-link" onclick="openCat(event, 'toasts')">Toasts</button>
+            <button class="tab-link" onclick="openCat(event, 'fries')">Loaded Fries</button>
+            <button class="tab-link" onclick="openCat(event, 'texmex')">Tex-Mex</button>
+            <button class="tab-link" onclick="openCat(event, 'pastas')">Pastas</button>
+            <button class="tab-link" onclick="openCat(event, 'asian')">Asian</button>
+            <button class="tab-link" onclick="openCat(event, 'salades')">Salades</button>
+            <button class="tab-link" onclick="openCat(event, 'desserts')">Desserts & Boissons</button>
+        </div>
+
+        <div id="smash" class="tab-content active" data-aos="fade-up">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/chevre.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>CHEVRE MIEL SMASH</h4> <span class="p-price">14.90€</span></div><p>2 Steaks pur bœuf, chèvre, miel, oignons caramélisés, salade, sauce moutarde miel.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/classic.jpg.png');"></div><div class="card-info"><span class="badge-popular">Populaire</span><div class="card-header"><h4>CLASSIC SMASH</h4> <span class="p-price">14.90€</span></div><p>2 Steaks smashés, cheddar, pickels, homemade sauce.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/bacon.png');"></div><div class="card-info"><div class="card-header"><h4>BACON SMASH</h4> <span class="p-price">15.90€</span></div><p>2 Steaks pur bœuf, bacon de bœuf, American cheese, oignons caramélisés, BBQ.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/panko.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>TASTY PANKO SMASH</h4> <span class="p-price">14.90€</span></div><p>Poulet pané, oignons frits, American cheese, sauce seven.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/viet.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>VIET' SMASH</h4> <span class="p-price">14.90€</span></div><p>Poulet frit, carottes, coriandre, concombres, sauce dynamite.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/blue.png');"></div><div class="card-info"><div class="card-header"><h4>BLUE CHEESE SMASH</h4> <span class="p-price">15.90€</span></div><p>2 Steaks pur bœuf, bleu d'auvergne, confit de figue, noix, sauce miel moutarde.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/cheese.jpg');"></div><div class="card-info"><div class="card-header"><h4>CHEESEBURGER</h4> <span class="p-price">10.90€</span></div><p>Steak pur bœuf, cheddar, cornichons, sauce cheeseburger.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/savoyard.jpg');"></div><div class="card-info"><div class="card-header"><h4>SAVOYARD SMASH</h4> <span class="p-price">15.90€</span></div><p>2 Steaks, lardons de veau, raclette, oignons caramélisés, crème champignons.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/vegan_s.jpg');"></div><div class="card-info"><div class="card-header"><h4>VEGAN SMASH</h4> <span class="p-price">15.90€</span></div><p>Supreme Pané Végétal, Avocat, Salade, Tomates, Oignons et SecretSauce.</p></div></div>
+            </div>
+        </div>
+
+        <div id="dwich" class="tab-content">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/kentucky.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>FRENCH KENTUCKY</h4> <span class="p-price">13.90€</span></div><p>Poulet pané, boursin, American cheese, sauce et crudités au choix.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/many.jpg.png');"></div><div class="card-info"><span class="badge-popular">Populaire</span><div class="card-header"><h4>MANY</h4> <span class="p-price">14.90€</span></div><p>2 Steaks, American cheese, œuf, bacon, sauce et crudités au choix.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/seven.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>LE SEVEN</h4> <span class="p-price">15.90€</span></div><p>Bavette émincée mariné, poivrons, american cheese, sauce et crudités.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/gratine.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>GRATINÉ</h4> <span class="p-price">14.90€</span></div><p>Viande hachée ou poulet, mozzarella, cheddar, oignons frits.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/tikka.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>TIKKA</h4> <span class="p-price">13.90€</span></div><p>Chicken jaune, American cheese, sauce et crudités au choix.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/anatalolie.jpg');"></div><div class="card-info"><div class="card-header"><h4>ANATOLIE</h4> <span class="p-price">12.90€</span></div><p>Kebab, crudités et sauce au choix.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/banh.jpg');"></div><div class="card-info"><div class="card-header"><h4>BANH MI</h4> <span class="p-price">13.90€</span></div><p>Poulet frit, carottes, coriandre, concombres, sauce dynamite.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/forestier.jpg');"></div><div class="card-info"><div class="card-header"><h4>FORESTIER</h4> <span class="p-price">14.90€</span></div><p>Poulet mariné, champignons, sauce normande, raclette.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/vegeta.jpg');"></div><div class="card-info"><div class="card-header"><h4>VEGETA</h4> <span class="p-price">14.90€</span></div><p>Supreme Pané Végétal, Avocat, Sauce et Crudités au choix.</p></div></div>
+            </div>
+        </div>
+
+        <div id="brasserie" class="tab-content">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/seguin.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>ESCALOPE SEGUIN</h4> <span class="p-price">17.90€</span></div><p>Escalope de poulet crémeuse, bacon de dinde, gratinée au chèvre et miel.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/milanaise.jpg.png');"></div><div class="card-info"><span class="badge-popular">Populaire</span><div class="card-header"><h4>LA MILANAISE</h4> <span class="p-price">16.90€</span></div><p>Escalope de poulet panée minute. Inclus boisson 33cl.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/cheval.jpg.png');"></div><div class="card-info"><span class="badge-popular">Populaire</span><div class="card-header"><h4>STEAK A CHEVAL</h4> <span class="p-price">16.90€</span></div><p>Steak 180g pur bœuf, American cheese, œuf au plat.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/tigre.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>TIGRE QUI PLEURE</h4> <span class="p-price">19.90€</span></div><p>Pièce du boucher finement découpée</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/boucher.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>PIECE DU BOUCHER</h4> <span class="p-price">18.90€</span></div><p>Entrecôte de bœuf 250g cuite à la flamme</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/normande.jpg');"></div><div class="card-info"><div class="card-header"><h4>LA NORMANDE</h4> <span class="p-price">16.90€</span></div><p>Escalope de poulet, crème de champignons.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/braizzy.jpg');"></div><div class="card-info"><div class="card-header"><h4>BRAIZZY</h4> <span class="p-price">16.90€</span></div><p>Escalope marinée cuite à la flamme.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/vegan_sup.jpg');"></div><div class="card-info"><div class="card-header"><h4>VEGAN SUPREME</h4> <span class="p-price">16.90€</span></div><p>Supreme Pané Végétal grillé.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/bras_grat.jpg');"></div><div class="card-info"><div class="card-header"><h4>LA GRATINE</h4> <span class="p-price">17.90€</span></div><p>Escalope poulet, lardon veau, gratinée mozzarella.</p></div></div>
+            </div>
+        </div>
+
+        <div id="toasts" class="tab-content">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/chevree.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>TOAST CROQ' CHEVRE</h4> <span class="p-price">7.90€</span></div><p>Grillé à l'emmental et au chèvre.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/toast_bacon.jpg');"></div><div class="card-info"><div class="card-header"><h4>TOAST BACON N CHEESE</h4> <span class="p-price">6.90€</span></div><p>Bacon de bœuf et cheddar fondu.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/toast_dajaj.jpg');"></div><div class="card-info"><div class="card-header"><h4>TOAST DAJAJ</h4> <span class="p-price">6.90€</span></div><p>Poulet et cheddar.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/toast_steak.jpg');"></div><div class="card-info"><div class="card-header"><h4>TOAST STEAK</h4> <span class="p-price">6.90€</span></div><p>Steak pur bœuf et cheddar.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/croq_vie.jpg');"></div><div class="card-info"><div class="card-header"><h4>TOAST CROQ' VIE</h4> <span class="p-price">6.90€</span></div><p>Croque monsieur classique gratiné emmental.</p></div></div>
+            </div>
+        </div>
+
+        <div id="fries" class="tab-content">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/charcut.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>LOADED FRIES CHARCUT LOVER</h4> <span class="p-price">10.90€</span></div><p>Lardon, bacon dinde, bacon bœuf, mozzarella.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/fries_from.jpg');"></div><div class="card-info"><div class="card-header"><h4>LOADED FRIES FROMAGERE</h4> <span class="p-price">9.90€</span></div><p>Mozzarella, bleu, cheddar, raclette.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/fries_chicken.jpg');"></div><div class="card-info"><span class="badge-popular">Populaire</span><div class="card-header"><h4>LOADED FRIES CHICKEN LITTLE</h4> <span class="p-price">9.90€</span></div><p>Poulet, sauce maison, cheddar, mozzarella.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/fries_chicago.jpg');"></div><div class="card-info"><div class="card-header"><h4>LOADED FRIES CHICAGO</h4> <span class="p-price">10.90€</span></div><p>Viande hachée, bacon, cheddar, mozzarella.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/gratinee.jpg.png');"></div><div class="card-info"><span class="badge-popular">Populaire</span><div class="card-header"><h4>LOADED FRIES GRATINEE</h4> <span class="p-price">10.90€</span></div><p>Haché ou Poulet, gratinée mozzarella et cheddar.</p></div></div>
+            </div>
+        </div>
+
+        <div id="texmex" class="tab-content">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/tenders.jpg');"></div><div class="card-info"><div class="card-header"><h4>TENDERS</h4> <span class="p-price">7.90€</span></div><p>Aiguillettes de poulets frits x3.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/rings.jpg');"></div><div class="card-info"><div class="card-header"><h4>OIGNONS RINGS</h4> <span class="p-price">6.90€</span></div><p>Rondelles d'oignons panés x8.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/jalapenos.jpg');"></div><div class="card-info"><div class="card-header"><h4>JALAPENOS</h4> <span class="p-price">6.90€</span></div><p>Piment pané farci au fromage x4.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/mozza.jpg');"></div><div class="card-info"><div class="card-header"><h4>MOZZA STICK</h4> <span class="p-price">6.90€</span></div><p>Mozzarella pané maison x4.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/tempura.jpg');"></div><div class="card-info"><div class="card-header"><h4>CREVETTE TEMPURA</h4> <span class="p-price">6.90€</span></div><p>Crevettes panées façon panko x4.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/nuggets.jpg');"></div><div class="card-info"><div class="card-header"><h4>NUGGETS</h4> <span class="p-price">6.90€</span></div><p>Nuggets de poulet x4.</p></div></div>
+            </div>
+        </div>
+
+        <div id="pastas" class="tab-content">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/alforno.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>AL FORNO</h4> <span class="p-price">15.90€</span></div><p>Poulet ou boeuf, gratiné au fromage.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/carbonara.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>CARBONARA</h4> <span class="p-price">14.90€</span></div><p>Lardons et crème.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/pasta_for.jpg');"></div><div class="card-info"><span class="badge-popular">Populaire</span><div class="card-header"><h4>FORESTIERE</h4> <span class="p-price">14.90€</span></div><p>Poulet et crème de champignons.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/p_boursin.jpg');"></div><div class="card-info"><div class="card-header"><h4>BOURSIN</h4> <span class="p-price">14.90€</span></div><p>Boursin et viande hachée.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/p_pesto.jpg');"></div><div class="card-info"><div class="card-header"><h4>VEGGIE PESTO</h4> <span class="p-price">14.90€</span></div><p>Légumes, pesto et tomates basilic.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/p_bolo.jpg');"></div><div class="card-info"><div class="card-header"><h4>BOLOGNAISE</h4> <span class="p-price">14.90€</span></div><p>Tomates et viande hachée.</p></div></div>
+            </div>
+        </div>
+
+        <div id="asian" class="tab-content">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/thai.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>THAÏ CHICKEN</h4> <span class="p-price">15.90€</span></div><p>Riz sauté, poulet crispy, œuf. Inclus frites + boisson.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/t.jpg');"></div><div class="card-info"><div class="card-header"><h4>TIGER RICE</h4> <span class="p-price">15.90€</span></div><p>Riz sauté et crevette.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/veggie_r.jpg');"></div><div class="card-info"><div class="card-header"><h4>VEGGIE RICE</h4> <span class="p-price">14.90€</span></div><p>Riz sauté aux légumes.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/bulgogi.jpg');"></div><div class="card-info"><div class="card-header"><h4>BULGOGI</h4> <span class="p-price">15.90€</span></div><p>Riz sauté et bavette émincée.</p></div></div>
+            </div>
+        </div>
+
+        <div id="salades" class="tab-content">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/statham.jpg.png');"></div><div class="card-info"><span class="badge-popular">Populaire</span><div class="card-header"><h4>STATHAM</h4> <span class="p-price">15.90€</span></div><p>Poulet à la flamme, 2 œufs, avocat, huile d'olive.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/cesar.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>CESAR</h4> <span class="p-price">14.90€</span></div><p>Poulet pané, œuf, bacon, parmesan.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/avocado.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>SHRIMP AVOCADO</h4> <span class="p-price">14.90€</span></div><p>Crevettes panées, avocat, concombres.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/ch_chaud.jpg');"></div><div class="card-info"><div class="card-header"><h4>CHEVRE CHAUD</h4> <span class="p-price">14.90€</span></div><p>Chèvre chaud, noix, avocat, carottes.</p></div></div>
+            </div>
+        </div>
+
+        <div id="desserts" class="tab-content">
+            <div class="premium-menu-grid">
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/tiramisu.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>TIRAMISU MAISON</h4> <span class="p-price">5.90€</span></div><p>Nutella, Caramel, Fruits rouge ou Pistache.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/tatin.jpg.png');"></div><div class="card-info"><div class="card-header"><h4>TATIN PERDU</h4> <span class="p-price">11.90€</span></div><p>Brioche perdu, pommes, glace vanille.</p></div></div>
+                <div class="premium-card"><div class="card-img" style="background-image: url('img/pepsi.jpg');"></div><div class="card-info"><span class="badge-popular">Populaire</span><div class="card-header"><h4>BOISSONS (33CL)</h4> <span class="p-price">2.60€</span></div><p>Pepsi, Pepsi Max, 7UP, Fanta, Schweppes, Oasis, Lipton, Coca Cherry, Eaux.</p></div></div>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>MENUS SERVIS AVEC FRITES ET BOISSON 33CL.</p></footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        function openCat(evt, catName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { 
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) { 
+                tablinks[i].className = tablinks[i].className.replace(" active", ""); 
+            }
+            
+            const target = document.getElementById(catName);
+            target.style.display = "block";
+            // Petit délai pour déclencher l'animation CSS
+            setTimeout(() => { target.classList.add("active"); }, 10);
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
